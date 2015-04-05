@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
+  
+  
   # GET /users
   # GET /users.json
   def index
@@ -11,6 +12,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @users = User.find(params[:id])
+    respond_to do | format |
+      format.json { render json: @user }
+      #format.jsonp {
+    end
   end
 
   # GET /users/new

@@ -31,6 +31,9 @@ gem 'sms-easy', '~> 1.2.5'
 
 #for ENV
 gem 'figaro', '~> 1.1.0'
+
+#jbuidler for JSONP - need for cross domain json stuff
+gem 'jpbuilder', '~> 0.2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
