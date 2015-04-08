@@ -12,7 +12,7 @@ class BillsController < ApplicationController
     @name = params(giveMeTheName)
     @bills =  User.joins(:bills).where(bills: { username: @name })
     respond_to do |format|
-     format.html { render :@bills }
+     format.html { render :userBills}
      format.json { render json: @bills }
     end
   end
@@ -22,7 +22,7 @@ class BillsController < ApplicationController
   def show
     @bills = Bill.find(params[:id])
     respond_to do |format|
-     #format.html { render :@bills }
+     format.html { render :show }
      format.json { render json: @bills }
     end
   end
