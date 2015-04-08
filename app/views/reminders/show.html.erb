@@ -25,5 +25,15 @@
   <%= @reminder.snoozeCount %>
 </p>
 
+<p>
+  <strong>Bill:</strong>
+  <%= @reminder.bill %>
+</p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @reminder.user_name %>
+</p>
+
 <%= link_to 'Edit', edit_reminder_path(@reminder) %> |
 <%= link_to 'Back', reminders_path %>

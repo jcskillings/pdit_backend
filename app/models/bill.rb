@@ -1,4 +1,3 @@
 class Bill < ActiveRecord::Base
-    belongs_to :user
-    has_many :reminders
+  belongs_to :user
 end

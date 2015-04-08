@@ -3,8 +3,6 @@
 <table>
   <thead>
     <tr>
-      <th>ID</th>
-      <th>User Id</th>
       <th>Name</th>
       <th>Category</th>
       <th>Paymenttype</th>
@@ -14,6 +12,8 @@
       <th>Amountlo</th>
       <th>Amounthi</th>
       <th>Snoozeduration</th>
+      <th>User</th>
+      <th>User name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -21,8 +21,6 @@
   <tbody>
     <% @bills.each do |bill| %>
       <tr>
-         <td><%= bill.id %></td>
-        <td><%= bill.user_id %></td>
         <td><%= bill.name %></td>
         <td><%= bill.category %></td>
         <td><%= bill.paymentType %></td>
@@ -32,6 +30,8 @@
         <td><%= bill.amountLo %></td>
         <td><%= bill.amountHi %></td>
         <td><%= bill.snoozeDuration %></td>
+        <td><%= bill.user %></td>
+        <td><%= bill.user_name %></td>
         <td><%= link_to 'Show', bill %></td>
         <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>

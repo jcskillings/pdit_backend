@@ -6,10 +6,25 @@ class BillsController < ApplicationController
   def index
     @bills = Bill.all
   end
+  
+  #return all bills belonging to given user
+  def userBills
+    @name = params(giveMeTheName)
+    @bills =  User.joins(:bills).where(bills: { username: @name })
+    respond_to do |format|
+     format.html { render :userBills}
+     format.json { render json: @bills }
+    end
+  end
 
   # GET /bills/1
   # GET /bills/1.json
   def show
+    @bills = Bill.find(params[:id])
+    respond_to do |format|
+     format.html { render :show }
+     format.json { render json: @bills }
+    end
   end
 
   # GET /bills/new
@@ -69,6 +84,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:name, :category, :paymentType, :loginPage, :dueDate, :repeat, :amountLo, :amountHi, :snoozeDuration, :user_id, :user_name)
+      params.require(:bill).permit(:user_id, :name, :category, :paymentType, :loginPage, :dueDate, :repeat, :amountLo, :amountHi, :snoozeDuration)
     end
 end
