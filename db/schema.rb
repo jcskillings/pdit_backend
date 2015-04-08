@@ -11,12 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403215001) do
+ActiveRecord::Schema.define(version: 20150408001755) do
+
+  create_table "bills", force: true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "paymentType"
+    t.string   "loginPage"
+    t.datetime "dueDate"
+    t.string   "repeat"
+    t.float    "amountLo"
+    t.float    "amountHi"
+    t.integer  "snoozeDuration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reminders", force: true do |t|
+    t.datetime "remindDate"
+    t.string   "remindText"
+    t.string   "remindType"
+    t.boolean  "isSnoozed"
+    t.integer  "snoozeCount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "username"
     t.string   "email"
+    t.string   "first"
+    t.string   "last"
     t.string   "phone"
+    t.string   "password"
+    t.boolean  "verifiedAcct"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

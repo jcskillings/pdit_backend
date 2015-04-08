@@ -1,11 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  username: MyString
   email: MyString
+  first: MyString
+  last: MyString
   phone: MyString
+  password: MyString
+  verifiedAcct: false
 
 two:
-  name: MyString
+  username: MyString
   email: MyString
+  first: MyString
+  last: MyString
   phone: MyString
+  password: MyString
+  verifiedAcct: false

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  category: MyString
+  paymentType: MyString
+  loginPage: MyString
+  dueDate: 2015-04-05 19:31:35
+  repeat: MyString
+  amountLo: 1.5
+  amountHi: 1.5
+  snoozeDuration: 1
+
+two:
+  name: MyString
+  category: MyString
+  paymentType: MyString
+  loginPage: MyString
+  dueDate: 2015-04-05 19:31:35
+  repeat: MyString
+  amountLo: 1.5
+  amountHi: 1.5
+  snoozeDuration: 1

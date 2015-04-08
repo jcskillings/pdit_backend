@@ -1,0 +1,53 @@
+<%= form_for(@bill) do |f| %>
+  <% if @bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% @bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :paymentType %><br>
+    <%= f.text_field :paymentType %>
+  </div>
+  <div class="field">
+    <%= f.label :loginPage %><br>
+    <%= f.text_field :loginPage %>
+  </div>
+  <div class="field">
+    <%= f.label :dueDate %><br>
+    <%= f.datetime_select :dueDate %>
+  </div>
+  <div class="field">
+    <%= f.label :repeat %><br>
+    <%= f.text_field :repeat %>
+  </div>
+  <div class="field">
+    <%= f.label :amountLo %><br>
+    <%= f.text_field :amountLo %>
+  </div>
+  <div class="field">
+    <%= f.label :amountHi %><br>
+    <%= f.text_field :amountHi %>
+  </div>
+  <div class="field">
+    <%= f.label :snoozeDuration %><br>
+    <%= f.number_field :snoozeDuration %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bill.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @bill.category %>
+</p>
+
+<p>
+  <strong>Paymenttype:</strong>
+  <%= @bill.paymentType %>
+</p>
+
+<p>
+  <strong>Loginpage:</strong>
+  <%= @bill.loginPage %>
+</p>
+
+<p>
+  <strong>Duedate:</strong>
+  <%= @bill.dueDate %>
+</p>
+
+<p>
+  <strong>Repeat:</strong>
+  <%= @bill.repeat %>
+</p>
+
+<p>
+  <strong>Amountlo:</strong>
+  <%= @bill.amountLo %>
+</p>
+
+<p>
+  <strong>Amounthi:</strong>
+  <%= @bill.amountHi %>
+</p>
+
+<p>
+  <strong>Snoozeduration:</strong>
+  <%= @bill.snoozeDuration %>
+</p>
+
+<%= link_to 'Edit', edit_bill_path(@bill) %> |
+<%= link_to 'Back', bills_path %>

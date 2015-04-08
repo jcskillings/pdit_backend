@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  remindDate: 2015-04-05 19:33:51
+  remindText: MyString
+  remindType: MyString
+  isSnoozed: false
+  snoozeCount: 1
+
+two:
+  remindDate: 2015-04-05 19:33:51
+  remindText: MyString
+  remindType: MyString
+  isSnoozed: false
+  snoozeCount: 1

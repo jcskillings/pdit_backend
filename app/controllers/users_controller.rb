@@ -1,12 +1,15 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  
-  
+
   # GET /users
   # GET /users.json
   def index
     @users = User.all
   end
+
+ def userBills
+   
+ end
 
   # GET /users/1
   # GET /users/1.json
@@ -17,7 +20,8 @@ class UsersController < ApplicationController
       #format.jsonp {
     end
   end
-
+    
+ 
   # GET /users/new
   def new
     @user = User.new
@@ -31,7 +35,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+  
     respond_to do |format|
       if @user.save
         #Send signup confirmation email
@@ -42,6 +46,7 @@ class UsersController < ApplicationController
         # Deliver a simple message.
         easy.deliver(@user.phone, "sprint", "welcome to paidit!" + " http://www.google.com")
         
+       
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -83,6 +88,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :phone)
+      params.require(:user).permit(:username, :email, :first, :last, :phone, :password, :verifiedAcct)
     end
 end

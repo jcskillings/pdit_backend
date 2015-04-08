@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reminddate:</strong>
+  <%= @reminder.remindDate %>
+</p>
+
+<p>
+  <strong>Remindtext:</strong>
+  <%= @reminder.remindText %>
+</p>
+
+<p>
+  <strong>Remindtype:</strong>
+  <%= @reminder.remindType %>
+</p>
+
+<p>
+  <strong>Issnoozed:</strong>
+  <%= @reminder.isSnoozed %>
+</p>
+
+<p>
+  <strong>Snoozecount:</strong>
+  <%= @reminder.snoozeCount %>
+</p>
+
+<%= link_to 'Edit', edit_reminder_path(@reminder) %> |
+<%= link_to 'Back', reminders_path %>
