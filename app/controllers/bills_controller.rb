@@ -22,11 +22,7 @@ class BillsController < ApplicationController
   def show
     @bills = Bill.find(params[:id])
     respond_to do |format|
-<<<<<<< HEAD
      format.html { render :show }
-=======
-     #format.html { render  : @bills }
->>>>>>> 272f0134d5cb9123e1f96a26126d0a240b8e05b2
      format.json { render json: @bills }
     end
   end
