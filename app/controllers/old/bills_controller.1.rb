@@ -8,12 +8,19 @@ class BillsController < ApplicationController
   end
   
   #return all bills belonging to given user
+  # GET /bills/:user_name/userBills
+  # GET /bills/:user_name/userBills.json
   def userBills
-    @name = params(giveMeTheName)
-    @bills =  User.joins(:bills).where(bills: { username: @name })
+    #@bills = Bill.find_by params([:user_name])
+    #@bills = Bill.where(category: 'none').take
+    Rails.logger.debug "hello"
+    @bills = Bill.where(user_name: 'jcskillings')
+    
+    #@bills =  User.joins(:bills).where(bills: { username: @name })
+    #@bills = Bill.all
     respond_to do |format|
-     format.html { render :userBills}
-     format.json { render json: @bills }
+      format.html { render :index}
+      format.json { render json: @bills }
     end
   end
 
@@ -34,13 +41,13 @@ class BillsController < ApplicationController
 
   # GET /bills/1/edit
   def edit
+    
   end
 
   # POST /bills
   # POST /bills.json
   def create
     @bill = Bill.new(bill_params)
-
     respond_to do |format|
       if @bill.save
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }

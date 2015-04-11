@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Bill ID</th>
       <th>Name</th>
       <th>Category</th>
       <th>Paymenttype</th>
@@ -21,6 +22,7 @@
   <tbody>
     <% @bills.each do |bill| %>
       <tr>
+        <td><%= bill.id %></td>
         <td><%= bill.name %></td>
         <td><%= bill.category %></td>
         <td><%= bill.paymentType %></td>

@@ -5,6 +5,12 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills = Bill.all
+    #@username = params[:user_name]
+    #@bills = Bill.where(user_name: @username)
+    #respond_to do |format|
+      #format.html { Bill.all }
+      #format.json { render json: @bills }
+    #end
   end
 
   # GET /bills/1
