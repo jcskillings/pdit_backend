@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   
   before_filter :cors_preflight_check
   after_filter :cors_set_access_control_headers
+  before_filter :configure_permitted_parameters, if: :devise_controller?
 
   # For all responses in this controller, return the CORS access control headers.
 
@@ -29,5 +30,9 @@ headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Typ
       headers['Access-Control-Max-Age'] = '1728000'
       render :text => '', :content_type => 'text/plain'
     end
+  end
+  
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :email, :password, :password_confirmation) }
   end
 end

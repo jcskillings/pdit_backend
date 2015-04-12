@@ -1,16 +1,19 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Bill.all
+    #@bills = Bill.all
     #@username = params[:user_name]
-    #@bills = Bill.where(user_name: @username)
-    #respond_to do |format|
-      #format.html { Bill.all }
-      #format.json { render json: @bills }
-    #end
+    #@userid = current_user.id
+    @user_id = "11"
+    @bills = Bill.where(user_id: @user_id)
+    respond_to do |format|
+      format.html { render @bills }
+      format.json { render json: @bills }
+    end
   end
 
   # GET /bills/1
@@ -75,6 +78,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:name, :category, :paymentType, :loginPage, :dueDate, :repeat, :amountLo, :amountHi, :snoozeDuration, :user_id, :user_name)
+      params.require(:bill).permit(:name, :category, :paymentType, :loginPage, :dueDate, :repeat, :amountLo, :amountHi, :user_name, :reminder1, :reminder2)
     end
 end
