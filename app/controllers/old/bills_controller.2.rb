@@ -1,29 +1,37 @@
 class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
-  #before_filter :authenticate_user!
-  
-  respond_to :html
-  respond_to :json
+  before_filter :authenticate_user!
 
+  # GET /bills
+  # GET /bills.json
   def index
     #@bills = Bill.all
-    #
-    @bills = Bill.where(user_id: current_user.id)
-    respond_with(@bills)
+    #@username = params[:user_name]
+    #@userid = current_user.id
+    @user_id = "11"
+    @bills = Bill.where(user_id: @user_id)
+    respond_to do |format|
+      format.html { render @bills }
+      format.json { render json: @bills }
+    end
   end
 
+  # GET /bills/1
+  # GET /bills/1.json
   def show
-    respond_with(@bill)
   end
 
+  # GET /bills/new
   def new
     @bill = Bill.new
-    respond_with(@bill)
   end
 
+  # GET /bills/1/edit
   def edit
   end
 
+  # POST /bills
+  # POST /bills.json
   def create
     @bill = Bill.new(bill_params)
 
@@ -37,10 +45,11 @@ class BillsController < ApplicationController
       end
     end
   end
-  
 
+  # PATCH/PUT /bills/1
+  # PATCH/PUT /bills/1.json
   def update
-     respond_to do |format|
+    respond_to do |format|
       if @bill.update(bill_params)
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
         format.json { render :show, status: :ok, location: @bill }
@@ -51,6 +60,8 @@ class BillsController < ApplicationController
     end
   end
 
+  # DELETE /bills/1
+  # DELETE /bills/1.json
   def destroy
     @bill.destroy
     respond_to do |format|
@@ -60,11 +71,13 @@ class BillsController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
     def set_bill
       @bill = Bill.find(params[:id])
     end
 
+    # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:name, :category, :paymentType, :loginPage, :dueDate, :repeat, :amountLo, :amountHi, :snoozeDuration, :user_id, :user_name, :reminder1, :reminder2)
+      params.require(:bill).permit(:name, :category, :paymentType, :loginPage, :dueDate, :repeat, :amountLo, :amountHi, :user_name, :reminder1, :reminder2)
     end
 end
