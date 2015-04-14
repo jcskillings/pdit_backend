@@ -36,7 +36,11 @@ gem 'figaro', '~> 1.1.0'
 gem 'jpbuilder', '~> 0.2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# need for foriegn keys
+gem 'foreigner', '~> 1.7.4'
 
+# used to re-generate scaffolds based on schema
+gem 'schema_to_scaffold', '~> 0.7.2'
 # Use unicorn as the app server
 # gem 'unicorn'
 

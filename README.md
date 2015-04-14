@@ -1,28 +1,19 @@
-<<<<<<< HEAD
-
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
 
 
-Welcome to your Rails project on Cloud9 IDE!
-
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://pdit-backend-jcskillings.c9.io/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
-=======
 # pdit_backend
->>>>>>> 14ce618ad158b8a848abfc9944069598ad27e60f
+## Ruby on Rails backend for paidit web app  [\(paidit on github\)](http://github.com/jcskillings/paidit)
+
+### Iteration 1
+The rails application can be run easily as a workspace on [cloud nine IDE](c9.io)
+by starting a workspace fromURL and using this repo's URL.
+
+### Models
+Models consist of User, Bill and Reminder which have controllers that expose a RESTful interface
+
+Relationships between the models are
+* User -> one to many -> Bill
+* Bill -> one to many -> Reminder
+* User -> one to many -> Reminder (through Bill)
+
+###HTTP requests
+The rails server will currently accept property formatted GET, POST and other RESTful HTTP request for single objects or entire tables. This is the primary means of communication between the front end and backend. The front end will generally transact in JSON objects over HTTP.

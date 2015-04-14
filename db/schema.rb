@@ -11,7 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408001755) do
+ActiveRecord::Schema.define(version: 20150408201502) do
+
+  create_table "Bills_Reminders", id: false, force: true do |t|
+    t.integer "bill_id",     null: false
+    t.integer "reminder_id", null: false
+  end
+
+  add_index "Bills_Reminders", ["bill_id", "reminder_id"], name: "index_Bills_Reminders_on_bill_id_and_reminder_id"
+  add_index "Bills_Reminders", ["reminder_id", "bill_id"], name: "index_Bills_Reminders_on_reminder_id_and_bill_id"
+
+  create_table "Bills_Users", id: false, force: true do |t|
+    t.integer "user_id", null: false
+    t.integer "bill_id", null: false
+  end
+
+  add_index "Bills_Users", ["bill_id", "user_id"], name: "index_Bills_Users_on_bill_id_and_user_id"
+  add_index "Bills_Users", ["user_id", "bill_id"], name: "index_Bills_Users_on_user_id_and_bill_id"
 
   create_table "bills", force: true do |t|
     t.string   "name"
@@ -25,6 +41,8 @@ ActiveRecord::Schema.define(version: 20150408001755) do
     t.integer  "snoozeDuration"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "user_name"
   end
 
   create_table "reminders", force: true do |t|
@@ -35,6 +53,8 @@ ActiveRecord::Schema.define(version: 20150408001755) do
     t.integer  "snoozeCount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bill_id"
+    t.string   "user_name"
   end
 
   create_table "users", force: true do |t|

@@ -5,19 +5,23 @@ one:
   category: MyString
   paymentType: MyString
   loginPage: MyString
-  dueDate: 2015-04-05 19:31:35
+  dueDate: 2015-04-08 22:46:55
   repeat: MyString
   amountLo: 1.5
   amountHi: 1.5
   snoozeDuration: 1
+  user_id: 
+  user_name: MyString
 
 two:
   name: MyString
   category: MyString
   paymentType: MyString
   loginPage: MyString
-  dueDate: 2015-04-05 19:31:35
+  dueDate: 2015-04-08 22:46:55
   repeat: MyString
   amountLo: 1.5
   amountHi: 1.5
   snoozeDuration: 1
+  user_id: 
+  user_name: MyString

@@ -1,15 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  remindDate: 2015-04-05 19:33:51
+  remindDate: 2015-04-08 22:53:12
   remindText: MyString
   remindType: MyString
   isSnoozed: false
   snoozeCount: 1
+  bill_id: 
+  user_name: MyString
 
 two:
-  remindDate: 2015-04-05 19:33:51
+  remindDate: 2015-04-08 22:53:12
   remindText: MyString
   remindType: MyString
   isSnoozed: false
   snoozeCount: 1
+  bill_id: 
+  user_name: MyString

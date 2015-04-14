@@ -8,6 +8,8 @@
       <th>Remindtype</th>
       <th>Issnoozed</th>
       <th>Snoozecount</th>
+      <th>Bill</th>
+      <th>User name</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +22,8 @@
         <td><%= reminder.remindType %></td>
         <td><%= reminder.isSnoozed %></td>
         <td><%= reminder.snoozeCount %></td>
+        <td><%= reminder.bill %></td>
+        <td><%= reminder.user_name %></td>
         <td><%= link_to 'Show', reminder %></td>
         <td><%= link_to 'Edit', edit_reminder_path(reminder) %></td>
         <td><%= link_to 'Destroy', reminder, method: :delete, data: { confirm: 'Are you sure?' } %></td>

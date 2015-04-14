@@ -69,6 +69,6 @@ class RemindersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reminder_params
-      params.require(:reminder).permit(:remindDate, :remindText, :remindType, :isSnoozed, :snoozeCount, :bill_id, :user_name)
+      params.require(:reminder).permit(:remindDate, :remindText, :remindType, :isSnoozed, :snoozeCount)
     end
 end
