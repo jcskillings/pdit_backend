@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     #include BCrypt
     has_many :bills
     has_many :reminders, through: :bills
+    has_many :notif_types
     
     validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, uniqueness: true
     validates :username, presence: true, uniqueness: true

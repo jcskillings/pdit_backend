@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150411213111) do
+ActiveRecord::Schema.define(version: 20150417001903) do
 
   create_table "Bills_Reminders", id: false, force: true do |t|
     t.integer "bill_id",     null: false
@@ -45,11 +45,22 @@ ActiveRecord::Schema.define(version: 20150411213111) do
     t.string   "user_name"
     t.datetime "reminder1"
     t.datetime "reminder2"
+    t.datetime "permDueDate"
+  end
+
+  create_table "notif_types", force: true do |t|
+    t.string   "name"
+    t.string   "destination"
+    t.string   "type"
+    t.string   "carrier"
+    t.boolean  "verified"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "reminders", force: true do |t|
     t.datetime "remindDate"
-    t.string   "remindText"
+    t.string   "remindName"
     t.string   "remindType"
     t.boolean  "isSnoozed"
     t.integer  "snoozeCount"
@@ -65,7 +76,7 @@ ActiveRecord::Schema.define(version: 20150411213111) do
     t.string   "first"
     t.string   "last"
     t.string   "phone"
-    t.string   "password_digest"
+    t.string   "provider"
     t.boolean  "verifiedAcct"
     t.datetime "created_at"
     t.datetime "updated_at"

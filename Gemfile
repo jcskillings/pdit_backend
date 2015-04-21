@@ -47,6 +47,9 @@ gem 'bcrypt', '~> 3.1.5'
 
 #use authentication
 gem 'devise'
+
+#for cors crap
+gem 'rack-cors', '~> 0.3.1'
 # Use unicorn as the app server
 # gem 'unicorn'
 

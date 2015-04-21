@@ -6,9 +6,17 @@ class BillsController < ApplicationController
   respond_to :json
 
   def index
-    #@bills = Bill.all
-    #
-    @bills = Bill.where(user_id: current_user.id)
+    @userName = params[:user_name]
+    
+    #bills = Bill.all
+    #@user = current_user
+    #@bills = Bill.where(user_id: current_user.id)
+    
+    @bills = Bill.where(user_name: @userName)
+    #respond_to do |format|
+    #  format.html { render :edit }
+    #  format.json { render json: @bills }
+    #end
     respond_with(@bills)
   end
 
@@ -67,4 +75,6 @@ class BillsController < ApplicationController
     def bill_params
       params.require(:bill).permit(:name, :category, :paymentType, :loginPage, :dueDate, :repeat, :amountLo, :amountHi, :snoozeDuration, :user_id, :user_name, :reminder1, :reminder2)
     end
+    
+   
 end

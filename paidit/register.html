@@ -1,0 +1,135 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paidit | Bill Analysis</title>
+    <link rel="stylesheet" href="css/billaccounts.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="shortcut icon" href="img/icon/checkMark.png"/>
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+    <h1>Splash</h1>
+    <div class="row">
+          <div class="large-12 columns">
+            <a><img src="img/logoSm.png" /></a>
+          </div>
+    </div>
+    <div class="row" id="bottomRow">
+          <div class="large-12 columns">
+            <a><img src="img/logoSm.png" /></a>
+          </div>
+    </div>
+    
+    <a href="#" data-reveal-id="regModal" class="radius button">Register</a>
+    <a href="#" data-reveal-id="loginModal" class="radius button">Login</a>
+    
+    <!-- MODALS FOR SIGN UP AND LOGIN-->
+    <div div id="regModal" class="reveal-modal small" data-reveal aria-labelledby="Sign Up" aria-hidden="true" role="dialog">
+      <div class="row">
+          <div class="large-6 large-centered columns">
+            <a><img src="img/logoSm.png" /></a>
+          </div>
+        </div>
+      <form>
+        <div class="row">
+          <div class="large-6 columns">
+            <label>Username
+            <input type="text" placeholder="username" id='regUsername' />
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-6 columns">
+            <label>Password
+            <input type="password" placeholder="******" id='regPassword' />
+            </label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="large-6 columns">
+            <label>Confirm Password
+            <input type="password" placeholder="*******" id='regPassConfirm'/>
+            </label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="large-6 columns">
+            <label>First Name
+            <input type="text" placeholder="first name" id='regFirstName'/>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-6 columns">
+            <label>Last Name
+            <input type="text" placeholder="last name" id='regLastName'/>
+            </label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="large-6 columns">
+            <label>Email Address
+            <input type="text" placeholder="you@example.com" id='regEmail'/>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="large-4 columns">
+              <a href="#" class="radius button">Sign Up</a>
+            </div>
+          </div>
+      </form>
+       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+      </div>
+      
+      <!-- Login modal-->
+      <div div id="loginModal" class="reveal-modal tiny" data-reveal aria-labelledby="Register" aria-hidden="true" role="dialog">
+        <form>
+          <div class="row">
+            <div class="large-6  columns">
+              <label>Username
+              <input type="text" placeholder="username" id='loginUsername'/>
+              </label>   
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-6 columns">
+              <label>Password
+              <input type="password" placeholder="********" id='loginPassword'/>
+              </label>   
+            </div>
+          </div>
+          <div class="row">
+            <div class="large-4 columns">
+              <a href="#" class="radius button">Login</a>
+            </div>
+          </div>
+           
+          <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+        </form>
+        
+      </div>
+        
+      
+      
+
+
+    
+   
+    
+    
+    
+    
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

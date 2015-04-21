@@ -1,0 +1,64 @@
+.top-bar-section ul li > a:hover {
+  color: #3dca45 !important;
+
+  }
+body {
+  background:#809C78!important;
+}
+.top-bar {
+    background: #444F43 !important;
+}
+
+.icon-bar >a:hover {
+background: black !important;
+}
+
+.top-bar-section li a:not(.button):hover {
+    background: #67ADCC !important;   
+}
+
+.top-bar-section ul .active > a {
+    background: #444F43 !important;   
+}
+#logs {
+    background: black;
+}
+
+
+table {
+    border-collapse: collapse;
+    box-shadow: 10 10 20px #444F43  !important;
+    
+}
+
+th {
+    color: white !important;
+    background: #67ADCC !important;
+    font-size: 150% !important;
+}
+
+tr {
+    box-shadow: 5 0 50px #444F43  !important;
+}
+.editBox {
+    border-left: 4pt solid #809C78;
+}
+.editBox:hover {
+    background-color: black !important;
+    cursor: pointer;
+}
+.column.small-centered {
+margin-left: auto;
+margin-right: auto;
+float: none !important; }
+
+#settingstext{
+    color:black;
+}
+
+#settings {
+    background: white;
+    border-style: solid;
+    border-width: 5px;
+    border-color:#333333;
+}

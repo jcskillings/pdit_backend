@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
-  
-  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'} 
-  get 'bills/:user_name/userBills' => 'bills#userBills'
+  devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
+  resources :notif_types
+
+  #devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'} #moved down
+  #get 'bills/:user_name/userBills' => 'bills#userBills' # commented out 4/14 justin
   resources :reminders
 
   resources :bills
 
   resources :users
+  
+  #resources :paidit
+  
   
   root to: "users#index"
   # The priority is based upon order of creation: first created -> highest priority.

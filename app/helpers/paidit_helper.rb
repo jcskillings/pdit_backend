@@ -1,0 +1,2 @@
+module PaiditHelper
+end
