@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :logs
+
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
   resources :notif_types
 

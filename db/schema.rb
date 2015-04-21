@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417001903) do
+ActiveRecord::Schema.define(version: 20150421134005) do
 
   create_table "Bills_Reminders", id: false, force: true do |t|
     t.integer "bill_id",     null: false
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 20150417001903) do
     t.datetime "reminder1"
     t.datetime "reminder2"
     t.datetime "permDueDate"
+  end
+
+  create_table "logs", force: true do |t|
+    t.string   "info"
+    t.string   "date"
+    t.string   "time"
+    t.string   "type"
+    t.string   "user_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "notif_types", force: true do |t|
