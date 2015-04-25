@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :logs
 
   devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'}
   resources :notif_types
+  resources :logs
 
   #devise_for :users, :controllers => {sessions: 'sessions', registrations: 'registrations'} #moved down
   #get 'bills/:user_name/userBills' => 'bills#userBills' # commented out 4/14 justin

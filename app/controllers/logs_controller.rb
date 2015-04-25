@@ -2,9 +2,12 @@ class LogsController < ApplicationController
   before_action :set_log, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+  respond_to :json
 
   def index
-    @logs = Log.all
+    @userName = params[:user_name]
+    #@logs = Log.all
+    @logs = Log.where(user_name: @userName, hide: false)
     respond_with(@logs)
   end
 
@@ -32,7 +35,7 @@ class LogsController < ApplicationController
   end
 
   def destroy
-    @log.destroy
+    @log.hide = true
     respond_with(@log)
   end
 
@@ -42,6 +45,6 @@ class LogsController < ApplicationController
     end
 
     def log_params
-      params.require(:log).permit(:info, :date, :time, :type, :user_name)
+      params.require(:log).permit(:info, :date, :time, :eventType, :user_name, :hide)
     end
 end

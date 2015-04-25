@@ -16,13 +16,17 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @log.type %>
+  <strong>Event Type:</strong>
+  <%= @log.eventType %>
 </p>
 
 <p>
   <strong>User name:</strong>
   <%= @log.user_name %>
+</p>
+<p>
+  <strong>Hide:</strong>
+  <%= @log.hide %>
 </p>
 
 <%= link_to 'Edit', edit_log_path(@log) %> |

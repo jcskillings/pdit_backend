@@ -2,9 +2,12 @@ class NotifTypesController < ApplicationController
   before_action :set_notif_type, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+  respond_to :json
 
   def index
-    @notif_types = NotifType.all
+    @userName = params[:user_name]
+    #@notif_types = NotifType.all
+    @notif_types = NotifType.where(user_name = @userName)
     respond_with(@notif_types)
   end
 
@@ -22,8 +25,17 @@ class NotifTypesController < ApplicationController
 
   def create
     @notif_type = NotifType.new(notif_type_params)
-    @notif_type.save
-    respond_with(@notif_type)
+    respond_to do |format|
+      if @notif_type.save
+      #respond_with(@notif_type)
+      format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
+      #format.json { render :show, status: :created, location: @notif_type }
+      format.json { render json: @notif_type }
+      else 
+      format.html { render :new }
+      format.json { render json: @notif_type.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
@@ -42,6 +54,6 @@ class NotifTypesController < ApplicationController
     end
 
     def notif_type_params
-      params.require(:notif_type).permit(:name, :destination, :type, :carrier, :verified)
+      params.require(:notif_type).permit(:name, :destination, :notifMethod, :carrier, :verified, :user_name)
     end
 end

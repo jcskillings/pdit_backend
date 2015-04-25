@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
-
+  #before_filter :authenticate_user!
+  respond_to :json
   # GET /users
   # GET /users.json
   def index
@@ -49,7 +49,7 @@ class UsersController < ApplicationController
         easy = SMSEasy::Client.new
 
         # Deliver a simple message.
-        easy.deliver(@user.phone, "sprint", "welcome to paidit!" + " http://www.google.com")
+        easy.deliver(@user.phone, @user.provider, "welcome to paidit!" + "https://paidit-kyleschenk1.c9.io")
         
        
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -94,6 +94,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :email, :first, :last, :phone, :password)
+      params.require(:user).permit(:login, :username, :email, :first, :last, :phone, :verifiedAcct, :provider, :password)
     end
 end

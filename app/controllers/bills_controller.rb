@@ -38,7 +38,8 @@ class BillsController < ApplicationController
     respond_to do |format|
       if @bill.save
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
-        format.json { render :show, status: :created, location: @bill }
+        #format.json { render :show, status: :created, location: @bill }
+        format.json { render json: @bill, status: :created, location: @bill }
       else
         format.html { render :new }
         format.json { render json: @bill.errors, status: :unprocessable_entity }
@@ -51,7 +52,7 @@ class BillsController < ApplicationController
      respond_to do |format|
       if @bill.update(bill_params)
         format.html { redirect_to @bill, notice: 'Bill was successfully updated.' }
-        format.json { render :show, status: :ok, location: @bill }
+        format.json { render json: @bill, status: :ok, location: @bill }
       else
         format.html { render :edit }
         format.json { render json: @bill.errors, status: :unprocessable_entity }

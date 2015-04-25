@@ -1,5 +1,7 @@
 class SessionsController < Devise::SessionsController  
     respond_to :json
+    before_filter :configure_permitted_parameters
+    
 =begin
     prepend_before_filter :require_no_authentication, :only => [:create ]
     #include Devise::Controllers::InternalHelpers
@@ -36,4 +38,8 @@ class SessionsController < Devise::SessionsController
     render :json=> {:success=>false, :message=>"Error with your login or password"}, :status=>401
   end
 =end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :login, :email, :password, :password_confirmation) }
+  end
+  
 end
