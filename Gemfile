@@ -44,6 +44,12 @@ gem 'schema_to_scaffold', '~> 0.7.2'
 # Use unicorn as the app server
 # gem 'unicorn'
 
+gem 'globalid', '~> 0.3.5'
+
+gem 'whenever' , require: false
+
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
