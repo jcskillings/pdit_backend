@@ -5,8 +5,15 @@ namespace :app do
        Bill.find_each do | bill |
             #if bill duedate has passed and it is a valid bill (not dummy/has reminder dates set)
             if (time > bill.dueDate && bill.reminder1 != NULL)
-                
-                 @bill = Bill.new(bill_params) #copy bill with same parameters but without reminders set
+                 @bill = bill
+                 bill.reminder1.month = 1
+                 bill.reminder1.day = 1
+                 bill.reminder1.year = 1983
+                 bill.reminder2.month = 1
+                 bill.reminder2.day = 1
+                 bill.reminder2.year = 1983
+                 
+                 @bill = Bill.new()
                  
                 #update next Due Date 
                 if (bill.dueDate.day < 28) 
