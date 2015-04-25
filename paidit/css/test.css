@@ -1,0 +1,42 @@
+.top-bar-section ul li > a:hover {
+  color: #3dca45 !important;
+  border-style: solid;
+    border-width: 5px;
+    border-color:#3dca45;
+
+  }
+body {
+  background: #e9eedd  !important;
+}
+
+
+.icon-bar >a:hover {
+background: green !important;
+   border-style: solid;
+    border-width: 5px;
+    border-color:green;
+}
+
+.top-bar-section li a:not(.button):hover {
+    background: green !important;  
+    border-style: solid;
+    border-width: 5px;
+    border-color:green;
+}
+
+.top-bar-section ul li.active > a {
+    background: gray !important;
+    border-style: solid;
+    border-width: 5px;
+    border-color:gray;
+    
+}
+
+.top-bar-section ul li.active > a:hover {
+    background: yellow !important;   
+}
+
+.column.small-centered {
+margin-left: auto;
+margin-right: auto;
+float: none !important; }

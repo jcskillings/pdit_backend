@@ -1,0 +1,186 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paidit | Welcome</title>
+    <link rel="stylesheet" href="css/test.css" />
+    <link rel="stylesheet" href="css/notificationslog.css" />
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/test.css" />
+    <link rel="shortcut icon" href="img/icon/checkMark.png"/>
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body onload="loadNotifications()">
+    
+      
+      <div class="icon-bar five-up">
+        <a class="item" href="index.html">
+          <img src="img/icon/homeIconG.png" height="20" width="20"  >
+          <label class="show-for-medium-up">Home</label>
+        </a>
+        <a class="item" href="analysis.html">
+          <img src="img/icon/chartsIconG.png" height="20" width="20">
+          <label class="show-for-medium-up">Bill Analysis</label>
+        </a>
+        <a class="item" href="billaccounts.html">
+          <img src="img/icon/billIconG.png" height="20" width="20">
+          <label class="show-for-medium-up">Bills</label>
+        </a>
+        <a class="item" href="notificationslog.html" id="logs">
+          <img src="img/icon/smsIconG.png" height="20" width="20">
+          <label class="show-for-medium-up" id="logstext">Notification Log</label>
+        </a>
+        <a class="item" href="usersettings.html">
+          <img src="img/icon/gearIconG.png" height="20" width="20">
+          <label class="show-for-medium-up">Settings</label>
+        </a>
+      </div>
+    
+    <div class="container navigation" style = "width:94%; margin:3%">  
+      <div class="small-12 small-centered large-12 large-centered columns">
+        
+          <!-- Notification LIST -->
+        <table class="small-12 large-12 columns" id="logTable" name = "logTable">
+          <thead  id="notificationbillTableHeader">
+            <tr>
+              <th width="70%">Notifications</th>
+              <th width="10%">Date</th>
+              <th width="10%">Time</th>
+              <th width="10%"></th>
+            </tr>
+          </thead>
+          <tbody >
+            
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    
+    <hr />
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      
+      function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) {
+              return c.substring(name.length, c.length);
+            }
+          }
+        return "";
+      }
+      
+      function setCookie(cname,cvalue,exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname+"="+cvalue+"; "+expires;
+      }
+      
+      var NL;
+      var numLogs;
+      var obj;
+      var info;
+      
+      function loadNotifications() {
+        if (getCookie("NL") == null || getCookie("NL") =="" || getCookie("NL") == '{"logs":[]}'){
+          setCookie("NL",'{"logs":[]}',30);
+          NL = '{"logs":[]}';
+          numLogs = 0;
+        }
+        else {
+          obj = JSON.parse(getCookie("NL"));
+          numLogs = obj.logs.length;
+          for  (var i=0; i < numLogs; i++){
+            putLog(i);
+          }
+        }
+      }
+      
+      function putLog(index) {
+        var table = document.getElementById("logTable");
+        var row = table.insertRow(index+1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        cell1.innerHTML = obj.logs[index].info;
+        cell2.innerHTML = obj.logs[index].date;
+        cell3.innerHTML = obj.logs[index].time;
+        cell4.innerHTML = '<button onClick="deleteRow(this)">Delete</button>';
+      }
+      
+      function stopDelete(){
+        var table;
+        var row;
+        for  (var i=0; i < numLogs-1; i++){
+          table = document.getElementById("logTable");
+          row = table.insertRow(i+1);
+          row.cells[3].innerHTML = '<button>Delete</button>';
+        }
+        return;
+      }
+      
+      function deleteRow(o){
+        
+        if (confirm("Are you sure?  Deleting this bill cannot be undone!") == true){
+        var p=o.parentNode.parentNode;
+        p.parentNode.removeChild(p);
+        updateJson();
+        }
+      }
+      
+      function updateJson(){
+        if(numLogs == 1) {
+          setCookie("NL",'{"logs":[]}',30);
+          return;
+        }
+        var j;
+        var tempCookie;
+        var table = document.getElementById("logTable");
+        NL=JSON.parse(getCookie("NL"));
+        numLogs = NL.logs.length;
+        for(j = 1; j < numLogs; j++){
+          var info = obj.logs[j-1].info;
+          var date = obj.logs[j-1].date;
+          var time = obj.logs[j-1].time;
+          var total = '{"info":"' +info +'","date":"'+ date +'","time":"' + time + '"}';
+          
+          var row = '{"info":"' + table.rows[j].cells[0].firstChild.data +
+            '","date":"'+table.rows[j].cells[1].firstChild.data+'","time":"'+
+            table.rows[j].cells[2].firstChild.data+'"}';
+          if (total != row) {
+            NL = getCookie("NL");
+            tempCookie = NL.substring(0, NL.indexOf(total));
+            var tempCookie2 = NL.substring(NL.indexOf(row), NL.length);
+            tempCookie2 = tempCookie + tempCookie2;
+            setCookie("NL", tempCookie2, 30);
+            stopDelete();
+            window.location.replace("notificationslog.html");
+          }
+        }
+        info = obj.logs[(numLogs-1)].info;
+        date = obj.logs[(numLogs-1)].date;
+        time = obj.logs[(numLogs-1)].time;
+        NL = getCookie("NL");
+        var temp = JSON.parse(NL);
+        numLogs = temp.length;
+        if(numLogs == 0 || numLogs == 1) total = '{"info":"' +info+'","date":"'+ date +'","time":"' + time + '"}';
+        else total = ',{"info":"' +info+'","date":"'+ date +'","time":"' + time + '"}';
+        tempCookie = NL.substring(0, NL.indexOf(total))+"]}";
+        setCookie("NL", tempCookie, 30);
+         stopDelete();
+        window.location.replace("notificationslog.html");
+      }
+      
+    </script>
+  </body>
+</html>

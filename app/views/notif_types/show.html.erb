@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @notif_type.name %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @notif_type.destination %>
+</p>
+
+<p>
+  <strong>notifMethod:</strong>
+  <%= @notif_type.type %>
+</p>
+
+<p>
+  <strong>Carrier:</strong>
+  <%= @notif_type.carrier %>
+</p>
+
+<p>
+  <strong>Verified:</strong>
+  <%= @notif_type.verified %>
+</p>
+
+<%= link_to 'Edit', edit_notif_type_path(@notif_type) %> |
+<%= link_to 'Back', notif_types_path %>

@@ -41,6 +41,15 @@ gem 'foreigner', '~> 1.7.4'
 
 # used to re-generate scaffolds based on schema
 gem 'schema_to_scaffold', '~> 0.7.2'
+
+# for encrypting passwords
+gem 'bcrypt', '~> 3.1.5'
+
+#use authentication
+gem 'devise'
+
+#for cors crap
+gem 'rack-cors', '~> 0.3.1'
 # Use unicorn as the app server
 # gem 'unicorn'
 

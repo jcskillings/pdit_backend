@@ -1,0 +1,37 @@
+<%= form_for(@notif_type) do |f| %>
+  <% if @notif_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@notif_type.errors.count, "error") %> prohibited this notif_type from being saved:</h2>
+
+      <ul>
+      <% @notif_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </div>
+  <div class="field">
+    <%= f.label :notifMethod %><br>
+    <%= f.text_field :notifMethod %>
+  </div>
+  <div class="field">
+    <%= f.label :carrier %><br>
+    <%= f.text_field :carrier %>
+  </div>
+  <div class="field">
+    <%= f.label :verified %><br>
+    <%= f.check_box :verified %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -2,6 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -19,5 +21,16 @@ module Workspace
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
+    #added 4/14 justin - changes from https://gist.github.com/AdrianTeh/3561310
+      config.middleware.insert_before Warden::Manager, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*',
+        :headers => :any,
+        :methods => [:get, :post, :put, :options]
+      end
+    end
+    
   end
 end

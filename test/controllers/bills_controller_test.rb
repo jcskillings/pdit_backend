@@ -18,7 +18,7 @@ class BillsControllerTest < ActionController::TestCase
 
   test "should create bill" do
     assert_difference('Bill.count') do
-      post :create, bill: { amountHi: @bill.amountHi, amountLo: @bill.amountLo, category: @bill.category, dueDate: @bill.dueDate, loginPage: @bill.loginPage, name: @bill.name, paymentType: @bill.paymentType, repeat: @bill.repeat, snoozeDuration: @bill.snoozeDuration, user_id: @bill.user_id, user_name: @bill.user_name }
+      post :create, bill: { amountHi: @bill.amountHi, amountLo: @bill.amountLo, category: @bill.category, dueDate: @bill.dueDate, loginPage: @bill.loginPage, name: @bill.name, paymentType: @bill.paymentType, reminder1: @bill.reminder1, reminder2: @bill.reminder2, repeat: @bill.repeat, snoozeDuration: @bill.snoozeDuration, user_id: @bill.user_id, user_name: @bill.user_name }
     end
 
     assert_redirected_to bill_path(assigns(:bill))
@@ -35,7 +35,7 @@ class BillsControllerTest < ActionController::TestCase
   end
 
   test "should update bill" do
-    patch :update, id: @bill, bill: { amountHi: @bill.amountHi, amountLo: @bill.amountLo, category: @bill.category, dueDate: @bill.dueDate, loginPage: @bill.loginPage, name: @bill.name, paymentType: @bill.paymentType, repeat: @bill.repeat, snoozeDuration: @bill.snoozeDuration, user_id: @bill.user_id, user_name: @bill.user_name }
+    patch :update, id: @bill, bill: { amountHi: @bill.amountHi, amountLo: @bill.amountLo, category: @bill.category, dueDate: @bill.dueDate, loginPage: @bill.loginPage, name: @bill.name, paymentType: @bill.paymentType, reminder1: @bill.reminder1, reminder2: @bill.reminder2, repeat: @bill.repeat, snoozeDuration: @bill.snoozeDuration, user_id: @bill.user_id, user_name: @bill.user_name }
     assert_redirected_to bill_path(assigns(:bill))
   end
 
