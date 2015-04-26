@@ -11,4 +11,5 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url = dest
     mail(to: dest, subject: 'Paidit Bill Reminder')
+  end
 end

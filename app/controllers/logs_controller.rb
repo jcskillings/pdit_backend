@@ -7,7 +7,7 @@ class LogsController < ApplicationController
   def index
     @userName = params[:user_name]
     #@logs = Log.all
-    @logs = Log.where(user_name: @userName, hide: false)
+    @logs = Log.where(user_name: @userName, hide: [false, nil])
     respond_with(@logs)
   end
 
@@ -35,7 +35,7 @@ class LogsController < ApplicationController
   end
 
   def destroy
-    @log.hide = true
+    @log.update(:hide => true)
     respond_with(@log)
   end
 

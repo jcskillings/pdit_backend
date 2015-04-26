@@ -44,13 +44,16 @@ class UsersController < ApplicationController
   
     respond_to do |format|
       if @user.save
+        #Rails.logger.debug "userEmail: " + @user.email + " userPhone: " + @user.phone + " userProvider : " + @user.provider
         #Send signup confirmation email
-        UserMailer.welcome_email(@user).deliver
+        #UserMailer.welcome_email(@user).deliver
         # Create the client
-        easy = SMSEasy::Client.new
+        #ogger.info "userEmail: " + @user.email + " userPhone: " + @user.phone + " userProvider : " + @user.provider
+        
+        #easy = SMSEasy::Client.new
 
         # Deliver a simple message.
-        easy.deliver(@user.phone, @user.provider, "welcome to paidit!" + "https://paidit-kyleschenk1.c9.io")
+        #easy.deliver(@user.phone, @user.provider, "welcome to paidit!" + "https://paidit-kyleschenk1.c9.io")
         
        
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -97,4 +100,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:login, :username, :email, :first, :last, :phone, :verifiedAcct, :provider, :password)
     end
+    
+    
 end

@@ -4,11 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to Paidit! <%= @user.first %></h1>
+    <h1>Welcome to Paidit! <%= @user.username %></h1>
     <p>
       You have successfully signed up to Paidit,
-      your username is: <%= @user.first %>.<br>
+      your username is: <%= @user.username %>.<br>
     </p>
+    <img src="/assets/logoSm.png"></img>
     <p>
       To login to the site, just follow this link: <%= @url %>.
     </p>

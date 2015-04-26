@@ -33,4 +33,12 @@ class User < ActiveRecord::Base
       end
     end
     
+    after_create :send_admin_mail
+    def send_admin_mail
+      UserMailer.welcome_email(self).deliver
+      easy = SMSEasy::Client.new
+
+      # Deliver a simple message.
+      easy.deliver(self.phone, self.provider, "welcome to paidit!" + "https://paidit-kyleschenk1.c9.io")
+    end
 end

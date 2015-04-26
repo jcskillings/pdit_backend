@@ -26,9 +26,9 @@ module Workspace
       config.middleware.insert_before Warden::Manager, Rack::Cors do
       allow do
         origins '*'
-        resource '*',
+        resource '/*',
         :headers => :any,
-        :methods => [:get, :post, :put, :options]
+        :methods => [:get, :post, :put, :options, :delete]
       end
     end
     

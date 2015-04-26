@@ -7,7 +7,7 @@ class NotifTypesController < ApplicationController
   def index
     @userName = params[:user_name]
     #@notif_types = NotifType.all
-    @notif_types = NotifType.where(user_name = @userName)
+    @notif_types = NotifType.where(user_name: @userName)
     respond_with(@notif_types)
   end
 
