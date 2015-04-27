@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+#gem 'rails', '4.1.6'
+gem 'rails', '4.2'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
     gem 'sqlite3'
@@ -64,7 +65,8 @@ gem 'globalid', '~> 0.3.5'
 
 gem 'whenever' , require: false
 
-
+# for background scheduling
+gem 'crono', '~> 0.8.9'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
